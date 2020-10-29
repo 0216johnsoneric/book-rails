@@ -1,0 +1,74 @@
+<body>
+    
+    <div class="app-container">
+
+    <!-- NAV BAR -->
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="top-bar-title">
+            <div class="topbar-responsive-logo">
+                <strong>
+                    <i class="fas fa-book-reader"></i>&emsp;BOOKWORMS</strong>
+            </div>
+        </div>
+
+        <ul class="nav nav-pills justify-content-end">
+            <li class="nav-item">
+                <a class="btn btn-outline-light btn-lg" href="#" role="button">LOGIN</a>
+            </li>
+            &emsp;
+
+            <li class="nav-item">
+                <a class="btn btn-outline-light btn-lg" href="#" role="button">SIGNUP</a>
+            </li>
+            &emsp;
+
+            <li class="nav-item">
+                <a class="btn btn-outline-light btn-lg" href="#" role="button">HOME</a>
+                <!-- <a class="nav-link" href="#">Link</a> -->
+            </li>
+
+        </ul>
+    </nav>
+
+    
+    <!-- MAIN SECTION -->
+    <main>
+        <div class="container">
+
+            <form class="add-item-form" style="text-align:center">
+                <h3>Create a Item!</h3>
+
+                <input id="name-field" type="text" name="name" value="" placeholder="Enter a item's name..." class="input-text"/>
+                <br/>
+                <input id="image-field" type="text" name="image" value="" placeholder="Enter a items's image URL..." class="input-text"/>
+                <br/>
+                <input type="submit" name="submit" value="Create New Item" class="submit"/>
+            </form>
+
+        </div>
+
+        <br/>
+        <div>
+            <p style="text-align:center">
+                Add New Items!
+                <button id="new-toy-btn">Add a new Item!</button>
+            </p>
+        </div>
+
+        <div id="item-collection"></div>
+    </main>
+
+    
+    <!-- FOOTER SECTION -->
+    <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+        <div class="container justify-content-end">
+
+            <div class="bottombar-responsive-logo">
+                <strong>
+                    <i class="fas fa-book-reader"></i>&emsp;&copy; 2020 Fans Top Sites</strong>
+            </div>
+        </div>
+    </nav>
+</div>
+</body>
