@@ -1,0 +1,15 @@
+<% if logged_in? %>
+    <h1>Welcome!</h1>
+    <h4>Let's get cooking! Add a new recipe or view all recipes.</h4>
+    <br>
+    <%= button_to "Recipes", recipes_path, method: 'get' %>
+    <br>
+    <%= button_to 'Add a Recipe', new_recipe_path, method: 'get' %>
+    <br>
+<% else %>
+   
+<% end %>
+
+
+<%= image_tag 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2019%2F05%2Fmsdduan_ec013-2000.jpg', class: 'welcome-img'%>
+

@@ -1,63 +1,83 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>BookwireApp</title>
+        
+        <meta charset="utf-8"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BookWorks</title>
         <%= csrf_meta_tags %>
         <%= csp_meta_tag %>
 
-        <%= stylesheet_link_tag    'application' %>
-        <%= javascript_include_tag 'application' %>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css"/>
+        <script src="https://kit.fontawesome.com/bc519c4149.js" crossorigin="anonymous"></script>
+
     </head>
 
     <body>
-        <nav class="navbar navbar-default">
+        <header>
+            <%# <%= render 'layouts/nav' %>
+        </header>
 
-            <div class="container">
-
-                <div class="navbar-header">
-                    <%= link_to "BookWire", root_path, class: "navbar-brand" %>
-                </div>
-
-                <ul class="nav navbar-nav">
-
-                    <% if user_signed_in? %>
-                        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-                    <% else %>
-                        <li><%= link_to "Sign Up", new_user_registration_path %></li>
-                        <li><%= link_to "Log In", new_user_session_path %></li>
-                    <% end %>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Genres<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <% Genre.all.each do |genre| %>
-                                <li class="<%= 'active' if params[:genre] == genre.name%>">
-                                    <%= link_to genre.name, books_path(genre: genre.name), class: "link" %>
-                                </li>
-                            <% end %>
-                        </ul>
-                    </li>
+    <div class="app-container">
 
 
-                    <% if user_signed_in? %>
-                        <li><%= link_to "Add Book", new_book_path %></li>
-                        <li><%= link_to "My Books", my_books_path, class: 'my_books' %></li>
-                        <li><%= link_to "My Reviews", my_reviews_path %></li>
-                    <% end %>
-                </ul>
+    <nav class="navbar navbar-dark bg-dark">
 
-            </div>
-
-        </nav>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <div class="container">
-            <div id="js-content">
-                <%= yield %>
+        <div class="top-bar-title">
+            <div class="topbar-responsive-logo">
+                <strong><i class="fas fa-book-reader"></i>&emsp;BOOKWORMS</strong>
             </div>
         </div>
+
+        <ul class="nav nav-pills justify-content-end">
+            <li class="nav-item btn btn-outline-light btn-lg">
+                <%= link_to 'LOGIN', login_path, method: 'get' %>
+            </li>
+                &emsp;
+
+            <li class="nav-item btn btn-outline-light btn-lg">
+                <%= link_to 'SIGNUP', signup_path, method: 'get' %>
+            </li>
+            &emsp;
+
+        <li class="nav-item btn btn-outline-light btn-lg">
+            <%= link_to 'HOME', home_path, method: 'get' %>
+
+            
+            <!-- <a class="nav-link" href="#">Link</a> -->
+        </li>
+
+    </ul>
+</nav>
+
+
+        
+
+        <div>
+            <% if flash[:message] %>
+                <%= flash[:message] %>
+            <% end %>
+            <%= @error %>
+        </div>
+
+        <main role="main">
+            <%= content_for?(:content) ? yield(:content) : yield %>
+        </main>
+
+        <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+            <div class="container justify-content-end">
+
+                <div class="bottombar-responsive-logo">
+                <strong><i class="fas fa-book-reader"></i>&emsp;&copy; 2020 Fans Top Sites</strong></div>
+            </div>
+        </nav>
+
+
     </body>
 </html>
+
 
