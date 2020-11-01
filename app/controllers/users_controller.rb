@@ -4,6 +4,12 @@ class UsersController < ApplicationController
         @user = User.find_by_id(params[:id]) 
     end
 
+    def show
+        redirect_if_not_logged_in
+        @user = User.find_by_id(params[:id])
+        redirect_to '/' if !@user
+    end
+    
     def new
         @user = User.new
     end
@@ -20,18 +26,21 @@ class UsersController < ApplicationController
         end
     end
 
-    def show
-        redirect_if_not_logged_in
-        @user = User.find_by_id(params[:id])
-        redirect_to '/' if !@user
+    # def show
+    #     redirect_if_not_logged_in
+    #     @user = User.find_by_id(params[:id])
+    #     redirect_to '/' if !@user
+    # end
+
+    def destroy
+        session.delete :user_id
+        redirect_to root_path
     end
-
-
 
     private
 
     def user_params
-        params.require(:user).permit(:user_name, :email, :password)
+        params.require(:user).permit(:username, :email)
     end
 
 end

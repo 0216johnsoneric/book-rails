@@ -1,12 +1,13 @@
 <div class="col-md-12 text-center">
 <% if logged_in? %>
-    <h1>Welcome!</h1>
-    <h4>Let's get cooking! Add a new recipe or view all recipes.</h4>
+    <h1>Welcome Again!</h1>
+    <h4>Lets get started.. View all Books or Add a new Book!!</h4>
     <br>
-    <%= button_to "Recipes", recipes_path, method: 'get' %>
+    <%= button_to "Books", books_path, method: 'get' %>
     <br>
-    <%= button_to 'Add a Recipe', new_recipe_path, method: 'get' %>
+    <%= button_to 'Add a Book', new_book_path, method: 'get' %>
     <br>
+    <%= button_to 'LOGOUT', logout_path, method: "delete" %>
 <% else %>
    <h1>Welcome to Bookworms</h1>
    <h4>Create, Read, Update, and Delete your Favorite Books!</h4>
@@ -14,6 +15,7 @@
 <br>
 
 <%= image_tag 'https://i2-prod.walesonline.co.uk/incoming/article8624804.ece/ALTERNATES/s1227b/Theology-Room-3.jpg', class: 'welcome-img'%>
+<%# <%= button_to 'LOGOUT', logout_path, method: "delete" %> %>
 
 
 </div>
