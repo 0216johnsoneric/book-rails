@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_223337) do
+ActiveRecord::Schema.define(version: 2020_11_01_022519) do
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.string "genre"
+    t.integer "pages"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
