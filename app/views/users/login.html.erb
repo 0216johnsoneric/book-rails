@@ -1,11 +1,12 @@
-<h1>Login Here</h1>
+<div class="col-md-12 text-center">
+<h1>Login</h1>
 
 <%= flash[:message] if flash[:message]%>
-
+<br></br>
 
 <%= form_for :user do |f| %>
-    <%= f.label :user_name %>
-    <%= f.text_field :user_name %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
     <br>
     <br>
     <%= f.label :password %>
@@ -14,7 +15,13 @@
     <br>
     <%= f.submit "Login" %>
 <% end %>
-<br><br>
-<%= link_to "Log In With Google", '/auth/google_oauth2'%>
-<br><br>
+<br>
 <%= link_to "Sign Up Here", signup_path %>
+<br>
+<%=image_tag 'https://www.wendywutours.co.uk/blog/wp-content/uploads/2017/11/8booksheader-730x410.jpg', class: 'login-img'%>
+
+
+
+
+
+</div>

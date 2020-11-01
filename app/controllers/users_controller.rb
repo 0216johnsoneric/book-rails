@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
+    
     def index
         @user = User.find_by_id(params[:id]) 
     end
-
 
     def new
         @user = User.new
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
             redirect_to @user
         else
             @error = @user.errors.full_messages.to_sentence
-            render :new
+            render :signup
         end
     end
 
